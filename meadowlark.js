@@ -16,7 +16,7 @@ app.set("view engine", "handlebars");
 app.get("/", (req, res) => res.render("home"));
 
 app.get("/about", (req, res) => {
-  res.render("about", { fortune: fortune.geFortune() });
+  res.render("about", { fortune: fortune.getFortune() });
 });
 // custom 404 page
 app.use((req, res) => {
