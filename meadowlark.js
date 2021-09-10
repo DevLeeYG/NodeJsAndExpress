@@ -31,9 +31,13 @@ app.use((err, req, res, next) => {
   res.render("500");
 });
 
-app.listen(port, () =>
-  console.log(
-    `Express started on http://localhost:${port}; ` +
-      `press Ctrl-C to terminate.`
-  )
-);
+if (require.main === module) {
+  app.listen(port, () => {
+    console.log(
+      `Express started on http://localhost:${port}` +
+        ";press Ctrl-c to terminate"
+    );
+  });
+} else {
+  module.exports = app;
+}
